@@ -1,0 +1,61 @@
+doctype html
+html
+    head
+        title #{pageTitle}
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/style.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css" rel="stylesheet")
+        link(href="/css/style.css" rel="stylesheet")
+    
+    body
+        - if (messages.success)
+            div(
+                class="alert alert-success alert-message"
+                alert-message
+            ) #{messages.success}
+        - if (messages.error)
+            div(
+                class="alert alert-danger alert-message"
+                alert-message
+            ) #{messages.error}
+
+        include ../../partials/header.pug
+
+        .search-right 
+            div(class="search-main")
+                div(class="search-main__title") People
+                div(class="search-list")
+                    each person in users
+                        div(class="search-item")
+                            a(class="search-item__image" href=`/user/${person._id}`)
+                                img(src=person.avatar alt=person.fullname)
+                            div(class="search-item__info")
+                                a(class="search-item__name" href=`/user/${person._id}`) #{person.fullname}
+                                if(person.statusWithMe == "friend")
+                                    div(class="search-item__statusWithMe") Friend
+                                else          
+                                    div(class="search-item__statusWithMe") User                               
+                                if(person.friendsList.length > 0)
+                                    div(class="search-item__mutual-friends")
+                                        div(class="search-item__mutual-friends--list")
+                                            each friend in person.friendsList
+                                                div(class="search-item__mutual-friends--item")
+                                                    img(src=friend.avatar alt=friend.fullname)
+                                        div(class="search-item__mutual-friends-length" style=`margin-left: ${person.friendsList.length * 21}px`) #{person.mutualLength} mutual friends
+                            if(person.statusWithMe == "friend")
+                                a(class="search-item__button" href=`/chat/${person.roomChatIdWithMe}`) Message
+                            if(person.statusWithMe == "me")
+                                a(class="search-item__button" href="/user/profile") My Profile
+                            if(person.statusWithMe == "not-friend")
+                                a(class="search-item__button" href=`/user/${person.slug}`) View Profile
+
+        script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
+        script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/index.iife.min.js") 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js") 
+        script(src="/socket.io/socket.io.js")
+        script(src="/js/script.js") 
+        script(type="module" src="/js/socket.js") 
+

@@ -1,0 +1,25 @@
+extends ../../layouts/user.pug 
+
+block main
+    div(class="content__right")
+        div(class="content__title") #{pageTitle}
+
+        div(class="list-user" list-request-friends=user.id)
+            each item in users
+                div(class="box-user add" user-id=item.id)
+                    a(href=`/user/${item.slug}`)
+                        div(class="inner-avatar")
+                            img(
+                                src=item.avatar
+                                alt=item.fullname
+                            )
+                    div(class="inner-info")
+                        a(href=`/user/${item.slug}`)
+                            div(class="inner-name") #{item.fullname}
+                        div(class="inner-buttons")
+                            button(
+                                btn-add-friend=item.id
+                            ) Add friend
+                            button(
+                                btn-cancel-friend=item.id
+                            ) Cancel

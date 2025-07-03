@@ -1,0 +1,36 @@
+ul(class="header")
+    if (user)
+        div(class="header__left")
+            div(class="header__logo")
+                img(src="/images/logo.png" alt="Messenger")
+            form(class="header__search" action="/user/search/result" method="GET")
+                <i class="fa-solid fa-magnifying-glass"></i>
+                input(type="text" placeholder="Search Messenger" name="keyword")
+                
+            //- div(class="header__suggest")
+            //-     div(class="header__user")
+            //-         div(class="heaader__user-img")
+            //-             img(src="https://robohash.org/hicveldicta.png" alt="")
+            //-         div(class="heaader__user-info")
+            //-             div(class="header__user-fullname") Bùi Anh Dũng
+            //-             div(class="header__user-status") Friend
+        
+        div(class="header__icons")
+            li(class="header__item")
+                a(href="/user/friends" class="header__item-icon") <i class="fa-solid fa-user-group header__icon"></i>
+            li(class="header__item")
+                a(href="/user/rooms" class="header__item-icon") <i class="fa-solid fa-people-roof header__icon"></i>
+            li(class="header__avatar")
+                a(href=`/user/profile`)
+                    img(
+                        src=user.avatar
+                        alt=user.fullname
+                    )
+            li(class="header__item")
+                a(href="/user/logout" class="header__item-icon") <i class="fa-solid fa-right-from-bracket header__icon"></i>
+    else   
+        li
+            a(href="/user/register") Đăng ký 
+        li
+            a(href="/user/login") Đăng nhập
+            

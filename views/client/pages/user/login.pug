@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        title #{pageTitle}
+        link(href="/css/style.css" rel="stylesheet")
+        
+    body
+      - if (messages.success)
+          div(
+              class="alert alert-success alert-message"
+              alert-message
+          ) #{messages.success}
+      - if (messages.error)
+          div(
+              class="alert alert-danger alert-message"
+              alert-message
+          ) #{messages.error}
+
+      div(class="login")
+        div(class="login__wrap")
+          div(class="login__left")
+            div(class="login__logo") messenger
+            div(class="login__title") #{pageTitle}
+            div(class="login__desc") Kết nối với bạn bè và người thân mọi lúc, mọi nơi.
+          div(class="login__right")
+            form(class="login__form" action="/user/login" method="POST")
+              input(type="email" placeholder="Email" name="email" class="login__input" required)
+              input(type="password" placeholder="Mật khẩu" name="password" class="login__input" required)
+              button(type="submit" class="login__button") Đăng nhập
+              a(class="login__forgot" href="/user/password/forgot") Quên mật khẩu?
+              div(class="login__create")
+                a(href="/user/register" class="login__create-account") Tạo tài khoản mới
+                      
+        script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
+        script(src="/js/script.js") 
+

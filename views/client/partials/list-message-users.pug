@@ -1,0 +1,30 @@
+.list-message-users 
+    .list-message-users__title 
+        div(class="list-message-users__title-left") Chats
+        div(class="list-message-users__title-right") <i class="fa-solid fa-pen-to-square"></i>
+    form.list-message-users-search 
+        <i class="fa-solid fa-magnifying-glass"></i>
+        input(type="text" placeholder="Search Messenger" name="keyword")
+    .list-message-users__user-online
+        each item in listFriendsMessage.slice(0, 5)
+            a(href=`/chat/${item.roomChatId}`)
+                div(class="list-message-users__user-online--item")
+                    div(class="list-message-users__user-online--avatar")
+                        img(src=item.friendAvatar alt=item.friendFullname)
+                    div(class="list-message-users__user-online--title") #{item.friendShortname}
+                    if(item.friendStatus == "online")
+                        div(class="list-message-users__user-online--point")               
+    .list-message-users__list-message
+        each item in listFriendsMessage
+            a(href=`/chat/${item.roomChatId}`)
+                div(class=`list-message-users__list-message--item ` + ((item.roomChatId == roomChatId) ? "active" : ""))
+                    div(class="list-message-users__list-message--avatar")
+                        img(src=item.friendAvatar alt=item.friendFullname)
+                    if(item.friendStatus == "online")
+                        div(class="list-message-users__user-online--point-in-message")  
+                    div(class="list-message-users__list-message--info")
+                        div(class="list-message-users__list-message--info-name") #{item.friendFullname}
+                        if(item.messageUserId == user._id)
+                            div(class="list-message-users__list-message--info-content") You: #{item.message}
+                        else
+                            div(class="list-message-users__list-message--info-content") #{item.message}

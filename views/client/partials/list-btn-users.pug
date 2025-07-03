@@ -1,0 +1,38 @@
+div(class="menu")
+  div(class="sub__menu-title") #{pageTitle}
+  if pageTitle == "Friends"
+    div(class="sub__menu-length") 
+      span(
+        badge-user-friends=user.id
+      ) #{user.friendsList.length} #{pageTitle}
+  else if pageTitle == "Friend Requests"
+    div(class="sub__menu-length")
+      span(
+        badge-user-accept=user.id
+      ) #{user.acceptFriends.length} #{pageTitle}
+  else if pageTitle == "Sent Requests"
+    div(class="sub__menu-length")
+      span(
+        badge-user-request=user.id
+      ) #{user.requestFriends.length} #{pageTitle}
+
+  a(href="/user/friends")
+    div.menu__item(class=pageTitle == "Friends" ? "active" : "")
+      div(class="menu__item-icon")
+        <i class="fa-solid fa-user-group menu__icon"></i>
+      div(class="menu__item-title") Friends
+  a(href="/user/accept")
+    div.menu__item(class=pageTitle == "Friend Requests" ? "active" : "")
+      div(class="menu__item-icon")
+        <i class="fa-solid fa-user-minus menu__icon"></i>
+      div(class="menu__item-title") Friend Requests
+  a(href="/user/request")
+    div.menu__item(class=pageTitle == "Sent Requests" ? "active" : "")
+      div(class="menu__item-icon")
+        <i class="fa-solid fa-user-plus menu__icon"></i>
+      div(class="menu__item-title") Sent Requests
+  a(href="/user/not-friend")
+    div.menu__item(class=pageTitle == "Users" ? "active" : "")
+      div(class="menu__item-icon")
+        <i class="fa-solid fa-users menu__icon"></i>
+      div(class="menu__item-title") Users

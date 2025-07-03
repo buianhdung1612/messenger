@@ -1,0 +1,73 @@
+doctype html
+html
+    head
+        title #{pageTitle}
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/style.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css" rel="stylesheet")
+        link(href="/css/style.css" rel="stylesheet")
+        
+    body
+        - if (messages.success)
+            div(
+                class="alert alert-success alert-message"
+                alert-message
+            ) #{messages.success}
+        - if (messages.error)
+            div(
+                class="alert alert-danger alert-message"
+                alert-message
+            ) #{messages.error}
+        
+        include ../../partials/header.pug
+
+        div(class="upload__confirm")
+            div(class="upload__confirm-left")
+                <i class="fa-solid fa-earth-americas"></i>
+                span() Your cover photo is public.
+            div(class="upload__confirm-right")
+                button(class="upload__cancel" btn-bg-cancel) Cancel 
+                button(class="upload__save" btn-bg-save) Save changes
+            
+        div(class="profile")
+            form(class="profile__background" upload-background)
+                if(user.background == "" || user.background == undefined)
+                    img(src="/images/background.jpg" alt=user.fullname upload-background-preview)
+                else 
+                    img(src=user.background alt=user.fullname upload-background-preview)
+                label(class="profile__edit-bg" for="background")
+                    <i class="fa-solid fa-camera"></i>
+                    span() Edit cover photo
+                input(type="file" id="background" class="input-background" upload-background-input)
+
+
+            div(class="profile__desc")
+                div(class="profile__avatar" upload-avatar)
+                    if(user.avatar == "" || user.avatar == undefined)
+                        img(src="/images/avatar.png" alt=user.fullname upload-avatar-preview)
+                    else 
+                        img(src=user.avatar alt=user.fullname upload-avatar-preview)
+                    label(class="profile__edit-avatar" for="avatar")
+                        <i class="fa-solid fa-camera"></i>
+                    input(type="file" id="avatar" class="input-avatar" upload-avatar-input)
+                div(class="profile__content")
+                    div(class="profile__name") #{user.fullname}
+                    div(class="profile__length-friend") #{user.friendsList.length} friends
+                    div(class="profile__list-friends")
+                        each friend in user.friendsList
+                            a(class="profile__friend" href=`/user/${friend.userId}`)
+                                if(friend.avatar == "" || friend.avatar == undefined)
+                                    img(src="/images/avatar.png" alt=friend.fullname class="profile__friend-image")
+                                else 
+                                    img(src=friend.avatar alt=friend.fullname class="profile__friend-image")
+
+
+        script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
+        script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/index.iife.min.js") 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js") 
+        script(src="/socket.io/socket.io.js")
+        script(src="/js/script.js") 
+        script(type="module" src="/js/socket.js")

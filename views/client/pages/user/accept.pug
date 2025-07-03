@@ -1,0 +1,33 @@
+extends ../../layouts/user.pug 
+
+block main
+    div(class="content__right")
+        div(class="content__title") #{pageTitle}
+
+        div(class="list-user" list-accept-friends=user.id)
+            each item in users
+                div(class="box-user" user-id=item.id)
+                    a(href=`/user/${item.slug}`)
+                        div(class="inner-avatar")
+                            img(
+                                src=item.avatar
+                                alt=item.fullname
+                            )
+                    div(class="inner-info")
+                        a(href=`/user/${item.slug}`)
+                            div(class="inner-name") #{item.fullname}
+                        div(class="inner-buttons")
+                            button(
+                                btn-accept-friend=item.id
+                            ) Confirm
+                            button(
+                                btn-refuse-friend=item.id
+                            ) Delete
+                            button(
+                                btn-deleted-friend
+                                disabled
+                            ) Request deleted
+                            button(
+                                btn-accepted-friend
+                                disabled
+                            ) Request accepted

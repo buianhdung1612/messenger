@@ -1,0 +1,73 @@
+doctype html
+html
+    head
+        title #{pageTitle}
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/style.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css" rel="stylesheet")
+        link(href="/css/style.css" rel="stylesheet")
+        
+    body
+        - if (messages.success)
+            div(
+                class="alert alert-success alert-message"
+                alert-message
+            ) #{messages.success}
+        - if (messages.error)
+            div(
+                class="alert alert-danger alert-message"
+                alert-message
+            ) #{messages.error}
+        
+        include ../../partials/header.pug
+
+        div(class="profile" infoUser=userInfo._id)
+            form(class="profile__background" upload-background)
+                img(src=userInfo.background alt=userInfo.fullname upload-background-preview)
+
+            div(class="profile__desc")
+                div(class="profile__avatar" upload-avatar)
+                    img(src=userInfo.avatar alt=userInfo.fullname upload-avatar-preview)
+                div(class="profile__content")
+                    div(class="profile__name") #{userInfo.fullname}
+                    div(class="profile__length-friend") #{userInfo.friendsList.length} friends
+                    div(class="profile__list-friends")
+                        each friend in userInfo.friendsList
+                            if(friend.userId == user.id)
+                                a(class="profile__friend" href=`/user/profile`)
+                                    img(src=friend.avatar alt=friend.fullname clss="profile__friend-image")
+                            else 
+                                a(class="profile__friend" href=`/user/${friend.userId}`)
+                                    img(src=friend.avatar alt=friend.fullname clss="profile__friend-image")
+                if(userInfo.statusWithMe == "friend")
+                    div(class="profile__buttons")                            
+                        div(class="profile__buttons-friend") <i class="fa-solid fa-user-tie"></i> Friends
+                        a(href=`/chat/${userInfo.roomChatIdWithMe}`)
+                            div(class="profile__buttons-message") <i class="fa-brands fa-facebook-messenger"></i> Message
+                if(userInfo.statusWithMe == "accept")
+                    div(class="profile__buttons")
+                        div(class="profile__buttons-add-in-accept" btn-add-friend=userInfo._id) <i class="fa-solid fa-user-plus"></i> Add friend
+                        div(class="profile__buttons-confirm" btn-accept-friend=userInfo._id) Confirm request   
+                        div(class="profile__buttons-delete" btn-refuse-friend=userInfo._id) Delete request
+                if(userInfo.statusWithMe == "request")
+                    div(class="profile__buttons add")
+                        div(class="profile__buttons-add" btn-add-friend=userInfo._id) <i class="fa-solid fa-user-plus"></i> Add friend
+                        div(class="profile__buttons-cancel" btn-cancel-friend=userInfo._id) <i class="fa-solid fa-user-minus"></i> Cancel request
+                if(userInfo.statusWithMe == "not-friend")
+                    div(class="profile__buttons")
+                        div(class="profile__buttons-add" btn-add-friend=userInfo._id) <i class="fa-solid fa-user-plus"></i> Add friend
+                        div(class="profile__buttons-cancel" btn-cancel-friend=userInfo._id) <i class="fa-solid fa-user-minus"></i> Cancel request
+                        div(class="profile__buttons-confirm-in-notFriend" btn-accept-friend=userInfo._id) Confirm request   
+                        div(class="profile__buttons-delete-in-notFriend" btn-refuse-friend=userInfo._id) Delete request
+            div(class="profile__border")
+
+        div(class="profile__bg")    
+        script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
+        script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/index.iife.min.js") 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js") 
+        script(src="/socket.io/socket.io.js")
+        script(src="/js/script.js") 
+        script(type="module" src="/js/socket.js")
