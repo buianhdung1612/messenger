@@ -1,4 +1,3 @@
-
 # MESSENGER CLONE 💬
 
 Một ứng dụng nhắn tin thời gian thực được phát triển để clone lại giao diện và tính năng của Facebook Messenger, sử dụng Socket.IO để đảm bảo trải nghiệm chat mượt mà và tức thì.
