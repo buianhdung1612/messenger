@@ -1,0 +1,42 @@
+doctype html
+html
+    head
+        title #{pageTitle}
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/style.min.css" rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css" rel="stylesheet")
+        link(href="/css/style.css" rel="stylesheet")
+        
+    body
+        - if (messages.success)
+            div(
+                class="alert alert-success alert-message"
+                alert-message
+            ) #{messages.success}
+        - if (messages.error)
+            div(
+                class="alert alert-danger alert-message"
+                alert-message
+            ) #{messages.error}
+
+        div(class="home")
+            div(class="home-container")
+                div(class="home-left")
+                    a(class="home-logo" href="/")
+                        img(src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.8562-6/475210330_598195142840489_9172482348551739153_n.png?_nc_cat=1&ccb=1-7&_nc_sid=f537c7&_nc_ohc=8X82Hw5ZI8YQ7kNvwEypXbY&_nc_oc=AdmT-65sGTJyzMoa7asW6tqoXd4tPccN7milNPK6S4PAjaplv4MZkI1U9fMWlZJt3q61a2tcHtzQiE642Jv1Ke78&_nc_zt=14&_nc_ht=scontent.fsgn2-6.fna&_nc_gid=w3DCadRvEtnAmVbkMFoNug&oh=00_AfP1L58cxBL35GyH9aQ2muTPecw1VH10EeTfP5_kELAo4A&oe=686DB518" alt="Logo")
+                    h1(class="home-title") A place for meaningful conversations
+                    p(class="home-desc") Messenger helps you connect with your Facebook friends and family, build your community, and deepen your interests.
+                    a(class="home-button" href="/user/friends") Continue as #{user.fullname}
+                div(class="home-right")
+                    div(class="home-image")
+                        img(src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.8562-6/474824309_3871144839821587_2071916119066981578_n.png?_nc_cat=1&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wmcnG1JoTL0Q7kNvwFO8T5O&_nc_oc=AdlReB3ECEWgbkrYKilXsnhMNXawrv7L4QZI3zqdbv_HRQT5fVVZsX0un14hWwh4SGuXhUfHr_iDdFDFsh9QO4OR&_nc_zt=14&_nc_ht=scontent.fsgn2-6.fna&_nc_gid=b-BuoZX8bQ_Fo_aIc2gqeg&oh=00_AfO5xVqWSKouMmrbC4lFT833VZWTfiXktPxZMEEyUCcP0Q&oe=686D9A0A" alt="Image")
+
+        script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
+        script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/index.iife.min.js") 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js") 
+        script(src="/socket.io/socket.io.js")
+        script(src="/js/script.js") 
+        script(type="module" src="/js/socket.js")  

@@ -59,6 +59,7 @@ module.exports = (req, res) => {
             // Trả về thông tin của A cho B trong Lời mòi đã nhận
             _io.emit("SERVER_RETURN_INFO_ACCEPT_FRIENDS", {
                 userIdA: userIdA,
+                slugA: userA.slug,
                 fullnameA: res.locals.user.fullname,
                 avatarA: userA.avatar || "",
                 userIdB: userIdB
@@ -67,6 +68,7 @@ module.exports = (req, res) => {
             // Trả vể thông tin của B cho A trong Lời mời đã gửi
             _io.emit("SERVER_RETURN_INFO_REQUEST_FRIENDS", {
                 userIdA: userIdA,
+                slugB: userB.slug,
                 userIdB: userIdB,
                 fullnameB: userB.fullname,
                 avatarB: userB.avatar || ""
@@ -127,11 +129,13 @@ module.exports = (req, res) => {
             // Trả cho B userIdA để xóa A ra khỏi giao diện lời mời đã nhận và Trả cho A userIdB để xóa B ra khổi giao diện lời mời đã gửi
             _io.emit("SERVER_RETURN_USER_ID_CANCEL_FRIENDS", {
                 userIdA: userIdA,
+                slugA: res.locals.user.slug,
                 fullnameA: res.locals.user.fullname,
                 avatarA: res.locals.user.avatar || "",
                 fullnameB: userB.fullname,
                 avatarB: userB.avatar || "",
-                userIdB: userIdB
+                userIdB: userIdB,
+                slugB: userB.slug
             });
         })
 
@@ -189,6 +193,7 @@ module.exports = (req, res) => {
             // Trả thông tin của B cho A để hiển thị B vào Danh sách người dùng
             _io.emit("SERVER_RETURN_INFO_REFUSE_FRIENDS", {
                 userIdB: userIdB,
+                slugB: userB.slug,
                 fullnameB: userB.fullname,
                 avatarB: userB.avatar || "",
                 userIdA: userIdA
@@ -278,9 +283,11 @@ module.exports = (req, res) => {
                 fullnameA: userA.fullname,
                 avatarA: userA.avatar || "",
                 lengthA: userA.friendsList.length,
+                slugA: userA.slug,
                 userIdB: userIdB,
                 fullnameB: userB.fullname,
                 avatarB: userB.avatar || "",
+                slugB: userB.slug,
                 lengthB: userB.friendsList.length,
                 roomChatId: roomChatId
             });
@@ -330,10 +337,12 @@ module.exports = (req, res) => {
                 userIdA: userIdA,
                 fullnameA: userA.fullname,
                 avatarA: userA.avatar || "",
+                slugA: userA.slug,
                 lengthA: userA.friendsList.length,
                 userIdB: userIdB,
                 fullnameB: userB.fullname,
                 avatarB: userB.avatar || "",
+                slugB: userB.slug,
                 lengthB: userB.friendsList.length
             });
         });

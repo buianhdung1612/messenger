@@ -12,7 +12,6 @@ const io = new Server(server);
 // ENV
 require('dotenv').config()
 
-
 const port = 3000
 const routeClient = require("./routes/client/index.route");
 
@@ -40,5 +39,5 @@ global._io = io;
 routeClient(app);
 
 server.listen(3000, () => {
-  console.log('listening on *:3000');
+  console.log(`listening on ${port}`);
 });

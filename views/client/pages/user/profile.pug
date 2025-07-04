@@ -33,9 +33,13 @@ html
         div(class="profile")
             form(class="profile__background" upload-background)
                 if(user.background == "" || user.background == undefined)
-                    img(src="/images/background.jpg" alt=user.fullname upload-background-preview)
+                    img(src="/images/background.jpg" alt=user.fullname upload-background-preview crossorigin="anonymous")
                 else 
-                    img(src=user.background alt=user.fullname upload-background-preview)
+                    img(src=user.background alt=user.fullname upload-background-preview crossorigin="anonymous")
+
+                // Gradient overlay nằm trên ảnh
+                div(class="background-fade")    
+            
                 label(class="profile__edit-bg" for="background")
                     <i class="fa-solid fa-camera"></i>
                     span() Edit cover photo
@@ -62,12 +66,12 @@ html
                                 else 
                                     img(src=friend.avatar alt=friend.fullname class="profile__friend-image")
 
-
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js")
         script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js")
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
         script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/file-upload-with-preview/6.1.2/index.iife.min.js") 
         script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js") 
         script(src="/socket.io/socket.io.js")
-        script(src="/js/script.js") 
+        script(type="module" src="/js/script.js")
         script(type="module" src="/js/socket.js")

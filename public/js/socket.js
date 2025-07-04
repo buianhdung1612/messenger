@@ -303,7 +303,7 @@ socket.on("SERVER_RETURN_INFO_ACCEPT_FRIENDS", (data) => {
             newUser.classList.add("box-user");
             newUser.setAttribute("user-id", data.userIdA);
             newUser.innerHTML = `
-                <a href="/user/${data.userIdA}">
+                <a href="/user/${data.slugA}">
                     <div class="inner-avatar">
                         <img src=${data.avatarA} alt=${data.fullnameA}>
                     </div>
@@ -395,7 +395,7 @@ socket.on("SERVER_RETURN_USER_ID_CANCEL_FRIENDS", (data) => {
         newUser.classList.add("box-user");
         newUser.setAttribute("user-id", data.userIdA);
         newUser.innerHTML = `
-            <a href="/user/${data.userIdA}">
+            <a href="/user/${data.slugA}">
                 <div class="inner-avatar">
                     <img src=${data.avatarA} alt=${data.fullnameA}>
                 </div>
@@ -437,7 +437,7 @@ socket.on("SERVER_RETURN_USER_ID_CANCEL_FRIENDS", (data) => {
             newUser.classList.add("box-user");
             newUser.setAttribute("user-id", data.userIdB);
             newUser.innerHTML = `
-                <a href="/user/${data.userIdB}">
+                <a href="/user/${data.slugB}">
                     <div class="inner-avatar">
                         <img src=${data.avatarB} alt=${data.fullnameB}>
                     </div>
@@ -491,7 +491,7 @@ socket.on("SERVER_RETURN_INFO_REQUEST_FRIENDS", (data) => {
         newUser.classList.add("add");
         newUser.setAttribute("user-id", data.userIdB);
         newUser.innerHTML = `
-            <a href="/user/${data.userIdB}">
+            <a href="/user/${data.slugB}">
                 <div class="inner-avatar">
                     <img src=${data.avatarB} alt=${data.fullnameB}>
                 </div>
@@ -539,7 +539,7 @@ socket.on("SERVER_RETURN_INFO_AND_LENGTH_ACCEPT_FRIEND_LIST", (data) => {
         newUser.classList.add("box-user");
         newUser.setAttribute("user-id", data.userIdB);
         newUser.innerHTML = `
-            <a href="/user/${data.userIdB}">
+            <a href="/user/${data.slugB}">
                 <div class="inner-avatar">
                     <img src=${data.avatarB} alt=${data.fullnameB}>
                 </div>
@@ -576,7 +576,7 @@ socket.on("SERVER_RETURN_INFO_AND_LENGTH_ACCEPT_FRIEND_LIST", (data) => {
         newUser.classList.add("box-user");
         newUser.setAttribute("user-id", data.userIdA);
         newUser.innerHTML = `
-            <a href="/user/${data.userIdA}">
+            <a href="/user/${data.slugA}">
                 <div class="inner-avatar">
                     <img src=${data.avatarA} alt=${data.fullnameA}>
                 </div>
@@ -727,7 +727,7 @@ socket.on("SERVER_RETURN_INFO_AND_LENGTH_DELETE_FRIEND_LIST", (data) => {
         newUser.classList.add("box-user");
         newUser.setAttribute("user-id", data.userIdA);
         newUser.innerHTML = `
-            <a href="/user/${data.userIdA}">
+            <a href="/user/${data.slugA}">
                 <div class="inner-avatar">
                     <img src=${data.avatarA} alt=${data.fullnameA}>
                 </div>
@@ -764,7 +764,7 @@ socket.on("SERVER_RETURN_INFO_AND_LENGTH_DELETE_FRIEND_LIST", (data) => {
         newUser.classList.add("box-user");
         newUser.setAttribute("user-id", data.userIdB);
         newUser.innerHTML = `
-            <a href="/user/${data.userIdB}">
+            <a href="/user/${data.slugB}">
                 <div class="inner-avatar">
                     <img src=${data.avatarB} alt=${data.fullnameB}>
                 </div>

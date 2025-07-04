@@ -94,7 +94,7 @@ module.exports.loginPost = async (req, res) => {
     })
 
     req.flash("success", "Đăng nhập thành công!");
-    res.redirect("/user/friends");
+    res.redirect("/");
 }
 
 module.exports.logout = async (req, res) => {
