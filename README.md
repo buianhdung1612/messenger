@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c6d886ab-68a6-488a-b9d4-5316c0f1c287)# MESSENGER CLONE 💬
+# MESSENGER CLONE 💬
 
 Một ứng dụng nhắn tin thời gian thực được phát triển để clone lại giao diện và tính năng của Facebook Messenger, sử dụng Socket.IO để đảm bảo trải nghiệm chat mượt mà và tức thì.
 
@@ -25,7 +25,7 @@ Dự án được phát triển với mục đích học tập và thực hành 
 
 | Trang chủ | Đăng nhập | Đăng ký |
 |----------|-----------|---------|
-| ![Home](https://github.com/user-attachments/assets/0ffc55d8-7a24-4ea9-8740-8e47dc8aab0a) | ![Login](https://github.com/user-attachments/assets/54737583-c7b1-428b-a050-c19ccd67d3de) | ![Register](https://github.com/user-attachments/assets/e910f8e3-0394-414f-b28d-f7ade270797e) |
+| ![Home](https://github.com/user-attachments/assets/0ffc55d8-7a24-4ea9-8740-8e47dc8aab0a) | ![Login](https://github.com/user-attachments/assets/54737583-c7b1-428b-a050-c19ccd67d3de) | ![Register](https://github.com/user-attachments/assets/a9c4d6f5-9e39-43cc-98f2-ea91e2e5cb77) |
 
 ## ✨ Tính Năng
 
