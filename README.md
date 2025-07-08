@@ -184,6 +184,47 @@ Các thao tác dưới đây đều được xử lý real-time giữa hai phía
 
 ---
 
+## 👤 Trang Cá Nhân (Profile Page)
+
+Trang cá nhân là nơi mỗi người dùng có thể **quản lý thông tin cá nhân**, bao gồm ảnh đại diện (avatar), ảnh nền (background), tên hiển thị, v.v.
+
+---
+
+### 🖼️ 1. Cập nhật Avatar Realtime
+
+Người dùng có thể **cập nhật ảnh đại diện** chỉ với vài thao tác đơn giản: nhấn vào avatar, chọn ảnh mới, và hệ thống sẽ:
+
+- Tự động cập nhật giao diện **ngay lập tức**.
+
+### 🌅 2. Cập nhật Ảnh Nền (Background)
+
+Tương tự như avatar, người dùng có thể thay ảnh nền dễ dàng để thể hiện cá tính. Sau khi chọn ảnh:
+
+- Ảnh nền mới cập nhật **ngay lập tức** tại trang cá nhân
+
+![image](https://github.com/user-attachments/assets/fe3ebdb0-2198-4d77-82ad-e5f12656e5a8)
+
+
+> 🖼️ Giao diện mới mẻ giúp cá nhân hóa hồ sơ của bạn.
+
+---
+
+### 📝 3. Chỉnh sửa Tên và Mô tả
+
+- Người dùng có thể thay đổi:
+  - **Tên hiển thị**
+  - **Mô tả giới thiệu ngắn gọn**
+- Thông tin mới sẽ:
+  - Hiển thị tức thì trên profile.
+  - Cập nhật tại các nơi sử dụng tên (danh sách bạn bè, cửa sổ chat, v.v.)
+  - Gửi **thông báo cập nhật real-time** đến các client khác nếu có liên quan.
+
+---
+
+
+📸 **Bạn có thể thử mở hai tab với cùng một tài khoản hoặc hai tài khoản khác nhau để kiểm tra tính năng realtime khi cập nhật avatar, background, tên...**
+
+
 📌 Tất cả các hành động trên đều được xử lý **real-time**, không cần reload trang.  
 Bạn có thể mở hai trình duyệt khác nhau để kiểm chứng đồng bộ hóa giữa hai tài khoản.
 
