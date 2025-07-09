@@ -209,20 +209,93 @@ Tương tự như avatar, người dùng có thể thay ảnh nền dễ dàng �
 
 ---
 
-### 📝 3. Chỉnh sửa Tên và Mô tả
+## 🏠 Tính Năng Phòng Chat (Group Chat)
 
-- Người dùng có thể thay đổi:
-  - **Tên hiển thị**
-  - **Mô tả giới thiệu ngắn gọn**
-- Thông tin mới sẽ:
-  - Hiển thị tức thì trên profile.
-  - Cập nhật tại các nơi sử dụng tên (danh sách bạn bè, cửa sổ chat, v.v.)
-  - Gửi **thông báo cập nhật real-time** đến các client khác nếu có liên quan.
+Ngoài chat 1-1, ứng dụng hỗ trợ tạo **phòng chat nhóm** để nhiều người cùng trò chuyện theo thời gian thực.
+
+### ✨ Các chức năng chính:
+
+- ✅ **Tạo phòng chat mới**
+  - Chọn tên phòng
+  - Mời nhiều thành viên ngay khi tạo
+- ✅ **Chat nhóm real-time (Socket.IO)**
+  - Tất cả thành viên trong phòng đều nhận tin nhắn tức thì
+  - Tin nhắn đồng bộ giữa tất cả thiết bị
+
+![image](https://github.com/user-attachments/assets/f9bb58fd-4d1d-462a-83fc-10fc008a7a24)
+
+### 🔄 Tính năng thời gian thực
+
+- ✏️ Trạng thái "Đang nhập..." áp dụng cho cả nhóm
+- 🖼️ Gửi ảnh, emoji, text như chat cá nhân
+
+![image](https://github.com/user-attachments/assets/7b7b5b15-60c3-4cd1-b03f-7b231eec6529)
+
+
+> 📌 Bạn có thể mở nhiều tab hoặc nhiều tài khoản khác nhau để test việc tạo phòng, mời thành viên và chat nhóm đồng thời.
+
+### ⚠️ Giới hạn hiện tại
+
+- Chưa hỗ trợ xóa thành viên hoặc đổi tên phòng sau khi tạo
+
+> 🎯 Những tính năng này có thể được cập nhật trong tương lai.
 
 ---
 
+## 🔍 Tính Năng Tìm Kiếm Người Dùng
 
-📸 **Bạn có thể thử mở hai tab với cùng một tài khoản hoặc hai tài khoản khác nhau để kiểm tra tính năng realtime khi cập nhật avatar, background, tên...**
+Chức năng **tìm kiếm người dùng** giúp bạn dễ dàng kết nối và kết bạn với người khác trong hệ thống.
+
+### 🧠 Tìm kiếm thông minh
+
+- Hỗ trợ **tìm kiếm không phân biệt chữ hoa/thường, thứ tự xuất hiện**
+![image](https://github.com/user-attachments/assets/64bef0d7-5da3-4721-853e-3abc608ce1ee)
+
+---
+
+## 🔐 Quên Mật Khẩu / Đặt Lại Mật Khẩu
+
+Ứng dụng hỗ trợ quy trình 3 bước để đặt lại mật khẩu an toàn:
+
+### 1️⃣ Bước 1: Nhập Gmail
+
+- Truy cập trang “Quên mật khẩu”
+- Nhập địa chỉ Gmail đã đăng ký
+- Nhấn **“Gửi mã OTP”**
+- Hệ thống sẽ gửi mã xác nhận qua email
+
+📸 Giao diện nhập Gmail:
+
+| Nhập Gmail | Thông báo gửi OTP |
+|------------|--------------------|
+| ![Email Input](https://github.com/user-attachments/assets/d840b297-5b36-481e-8f4c-7a08f6883992) | ![OTP Sent](https://github.com/user-attachments/assets/1cd7cea7-95a8-43b9-a22f-3ab3c300fc07) |
+
+---
+
+### 2️⃣ Bước 2: Xác Nhận Mã OTP
+
+- Nhập mã OTP gồm 6 ký tự
+- Hệ thống kiểm tra tính hợp lệ và hạn sử dụng
+
+📸 Giao diện nhập OTP:
+
+![image](https://github.com/user-attachments/assets/dcef011e-4f16-47ee-ae2d-78cfa0ce5aa8)
+
+> ⚠️ Mã OTP có hiệu lực trong **5 phút**
+
+---
+
+### 3️⃣ Bước 3: Đặt Mật Khẩu Mới
+
+- Nhập mật khẩu mới & xác nhận lại
+- Nhấn **“Đổi mật khẩu”**
+
+📸 Giao diện đổi mật khẩu:
+
+![image](https://github.com/user-attachments/assets/f8cdd06d-82c4-4cd9-afea-d3d3a78bae4f)
+
+> ✅ Mật khẩu đổi thành công → chuyển về trang chủ
+
 
 
 📌 Tất cả các hành động trên đều được xử lý **real-time**, không cần reload trang.  
