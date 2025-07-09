@@ -37,3 +37,29 @@ block main
         
         .inner-preview-images
             div(class="custom-file-container" data-upload-id="upload-images")
+    
+    .room-overlay
+        form(class="room-form" action="/user/rooms/create" method="POST")
+            .room-header 
+                .room-title Tạo nhóm
+                <i class="fa-solid fa-xmark room-close close-room"></i>
+            .room-middle
+                .room-name
+                    label(class="room-bg-camera" for="camera") <i class="fa-solid fa-camera"></i>
+                    input(class="room-input-avatar" type="file" name="avatar" id="camera")
+                    input(class="room-input-name" placeholder="Nhập tên nhóm..." name="title") 
+                .room-search
+                    <i class="fa-solid fa-magnifying-glass"></i> 
+                    input(class="room-input-search" placeholder="Nhập tên bạn bè")
+                .room-bottom 
+                    each item in listFriendsMessage
+                        label(class="room-item")
+                            input(type="checkbox" value=item.friendId name="usersId")
+                            span(class="checkmark")
+                            div(class="room-item-avatar")
+                                img(src=item.friendAvatar alt=item.friendFullname)
+                            div(class="room-item-name") #{item.friendFullname}
+            .room-buttons 
+                .room-btn-cancel Hủy
+                button(class="room-btn-create" type="submit") Tạo nhóm
+        

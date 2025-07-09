@@ -1,5 +1,6 @@
 const streamUploadHelper = require("../../helpers/streamUpload.helper");
 const Chat = require("../../models/chat.model");
+const RoomChat = require("../../models/roomChat.model");
 const User = require("../../models/user.model");
 
 module.exports.index = async (req, res) => {
@@ -65,7 +66,8 @@ module.exports.index = async (req, res) => {
                 friendAvatar: infoFriend.avatar,
                 friendStatus: infoFriend.statusOnline,
                 roomChatId: friend.roomChatId,
-                message: `Bạn đã kết nối với ${infoFriend.fullname.split(" ").pop()}. Hãy gửi tin nhắn đầu tiên!`
+                message: `Bạn đã kết nối với ${infoFriend.fullname.split(" ").pop()}. Hãy gửi tin nhắn đầu tiên!`,
+                createdAt: new Date(0)
             })
         }
         else {
@@ -77,10 +79,17 @@ module.exports.index = async (req, res) => {
                 friendStatus: infoFriend.statusOnline,
                 roomChatId: friend.roomChatId,
                 message: latestMessage.content,
-                messageUserId: latestMessage.userId
+                messageUserId: latestMessage.userId,
+                createdAt: latestMessage.createdAt
             })
         }
     }
+
+    const roomChats = await RoomChat.find({
+        "users.userId": { $in: [res.locals.user.id] }
+    });
+
+    listFriendsMessage.sort((a, b) => b.createdAt - a.createdAt);
 
     const chats = await Chat.find({
         deleted: false,

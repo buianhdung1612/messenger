@@ -5,7 +5,7 @@ const roomChatSchema = new mongoose.Schema(
         title: String,
         typeRoom: String, // friends, groups
         users: Array, // userId, role(superAdmin, ),
-        // avatar: String,
+        avatar: String,
         // background: String,
         deleted: {
             type: Boolean,

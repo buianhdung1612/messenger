@@ -11,7 +11,7 @@ const sendMailHelper = require("../../helpers/sendMail.helper")
 
 module.exports.register = (req, res) => {
     res.render('client/pages/user/register.pug', {
-        pageTitle: "Trang đăng ký"
+        pageTitle: "Tạo tài khoản mới"
     })
 }
 
@@ -44,7 +44,7 @@ module.exports.registerPost = async (req, res) => {
 
     res.cookie("tokenUser", newUser.token);
     req.flash("success", "Đăng ký tài khoản thành công");
-    res.redirect("/chat");
+    res.redirect("/");
 }
 
 module.exports.login = (req, res) => {
@@ -347,9 +347,29 @@ module.exports.createRoom = async (req, res) => {
 module.exports.createRoomPost = async (req, res) => {
     const title = req.body.title;
     const usersId = req.body.usersId;
+    const avatar = req.body.avatar;
+
+    if (!title) {
+        req.flash("error", "Tên phòng không được để trống!");
+        res.redirect(req.get("referer"));
+        return;
+    }
+
+    if (!usersId) {
+        req.flash("error", "Vui lòng chọn thành viên cho nhóm!");
+        res.redirect(req.get("referer"));
+        return;
+    }
+
+    if (usersId.length < 2) {
+        req.flash("error", "Ít nhất phải 2 bạn bè trong nhóm!");
+        res.redirect(req.get("referer"));
+        return;
+    }
 
     const dataRoomChat = {
         title: title,
+        avatar: avatar,
         typeRoom: "group",
         users: []
     };

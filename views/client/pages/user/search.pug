@@ -28,10 +28,10 @@ html
                 div(class="search-list")
                     each person in users
                         div(class="search-item")
-                            a(class="search-item__image" href=`/user/${person._id}`)
+                            a(class="search-item__image" href=`/user/${person.slug}`)
                                 img(src=person.avatar alt=person.fullname)
                             div(class="search-item__info")
-                                a(class="search-item__name" href=`/user/${person._id}`) #{person.fullname}
+                                a(class="search-item__name" href=`/user/${person.slug}`) #{person.fullname}
                                 if(person.statusWithMe == "friend")
                                     div(class="search-item__statusWithMe") Friend
                                 else          

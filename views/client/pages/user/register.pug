@@ -14,44 +14,44 @@ html
           div(
               class="alert alert-danger alert-message"
               alert-message
-          ) #{messages.error}block main
-      .container.my-5
-        .row.justify-content-center
-          .col-8
-            h1(class="text-center") Đăng ký tài khoản
-            form(
-              action="/user/register"
-              method="POST"
-            )
-              div(class="form-group")
-                label(for="fullname") Họ và tên
-                input(
-                  type="text"
-                  class="form-control"
-                  id="fullname"
-                  name="fullname"
-                  required
-                )
-              div(class="form-group")
-                label(for="email") Email
-                input(
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  name="email"
-                  required
-                )
-              div(class="form-group")
-                label(for="password") Mật khẩu
-                input(
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  name="password"
-                  required
-                )
-              div(class="form-group")
-                button(
-                  type="submit"
-                  class="btn btn-primary btn-block"
-                ) Đăng ký
+          ) #{messages.error}
+
+      .register
+        .register-logo messenger 
+        form(
+          action="/user/register"
+          method="POST"
+          class="register-form"
+        )
+          h1(class="register-title") #{pageTitle}
+          p(class="register-desc") Nhanh chóng và dễ dàng.
+          input(
+            type="text"
+            class="register-input"
+            id="fullname"
+            name="fullname"
+            placeholder="Họ và tên"
+            required
+          )
+          input(
+            type="email"
+            class="register-input"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          )
+          input(
+            type="password"
+            class="register-input"
+            id="password"
+            name="password"
+            placeholder="Mật khẩu mới"
+            required
+          )
+          p(class="register-more") Những người dùng dịch vụ của chúng tôi có thể đã tải thông tin liên hệ của bạn lên Facebook.
+          button(
+            type="submit"
+            class="register-button"
+          ) Đăng ký
+          a(href="/user/login" class="register-back") Bạn đã có tài khoản ư?

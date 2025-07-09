@@ -22,6 +22,103 @@ li {
     list-style: none;
 }
 
+p {
+    padding: 0;
+    margin: 0;
+}
+
+/* Register Page */
+.register {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #F0F2F5;
+    height: 80vh;
+}
+
+.register-logo {
+    font-size: 55px;
+    color: #0866ff;
+    line-height: 85px;
+    font-weight: 600;
+}
+
+.register-form {
+    width: 432px;
+    border-radius: 8px;
+    background-color: #fff;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.register-title {
+    font-size: 28px;
+    line-height: 32px;
+    color: #1c1e21;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.register-desc {
+    font-size: 17px;
+    line-height: 24px;
+    color: #606770;
+    font-weight: 400;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DADDE1;
+    margin-bottom: 20px;
+}
+
+.register-input {
+    padding: 11px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 5px;
+    width: 400px;
+    border: 1px solid #CCD0D5;
+    margin-bottom: 10px;
+    color: #1c1e21;
+}
+
+.register-more {
+    color: #777;
+    font-size: 14px;
+    padding: 0 17px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.register-button {
+    background-color: #00a400;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    height: 36px;
+    padding: 0 60px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.register-button:hover {
+    background-color: #3F9D16;
+    color: #EAECEF;
+}
+
+
+.register-back {
+    display: block;
+    color: #1877f2;
+    font-size: 19px;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+/* End Register Page */
+
 /* Home Page */
 .home {
     padding: 50px 0;
@@ -320,7 +417,7 @@ li {
 .chat .inner-body {
     flex: 1;
     overflow-y: auto;
-    padding: 5px;
+    padding: 20px;
 }
 
 .chat-wrap {
@@ -335,7 +432,7 @@ li {
 .chat .inner-body .inner-content {
     background: #F1F1F1;
     margin-bottom: 10px;
-    max-width: 220px;
+    max-width: 280px;
     padding: 5px 10px;
     border-radius: 15px;
     line-height: 1.4;
@@ -768,11 +865,26 @@ li {
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    align-items: center;
 }
 
 .login__left {
     width: 536px;
     padding-right: 48px;
+}
+
+.login-image {
+    width: 90%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .login__logo {
@@ -1953,3 +2065,271 @@ li {
 }
 
 /* End Forgot Password */
+
+
+/* Room */
+.room-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    visibility: hidden;
+}
+
+.room-overlay.show {
+    visibility: visible;
+}
+
+.room-form {
+    width: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.room-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 8px 0 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.room-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #081b3a;
+}
+
+.room-close {
+    color: rgb(8, 27, 58);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.room-middle {
+    padding: 20px 16px 0px 16px;
+}
+
+.room-name {
+    display: flex;
+    align-items: center;
+}
+
+.room-bg-camera {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    color: #5a6981;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.room-input-avatar {
+    display: none;
+}
+
+.room-search {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.room-search i {
+    position: absolute;
+    color: rgb(90, 105, 129);
+    font-size: 14px;
+    left: 13px;
+    top: 45%;
+}
+
+.room-input-name {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    flex: 1;
+    margin-left: 10px;
+    color: #081b3a;
+    font-size: 14px;
+    font-weight: 400;
+    height: 37px;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+.room-input-name:focus {
+    border-color: #4B87FF;
+}
+
+.room-input-search {
+    padding: 0 12px 0 32px;
+    border-radius: 20px;
+    color: #081b3a;
+    font-size: 14px;
+    font-weight: 400;
+    height: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: 100%;
+    margin-top: 10px;
+    outline: none;
+}
+
+.room-input-search:focus {
+    border-color: #4B87FF;
+}
+
+
+.room-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 15px;
+    height: 430px;
+    overflow-y: scroll;
+}
+
+.room-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.room-buttons {
+    padding: 14px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Hide the browser's default checkbox */
+.room-item input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.room-item .checkmark {
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #CCCCCD;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* When the checkbox is checked, add a blue background */
+.room-item input:checked~.checkmark {
+    background-color: #326DFF;
+    border: 1px solid #326DFF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.room-item input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.room-item .checkmark:after {
+    content: "";
+    display: none;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+.room-item-avatar {
+    width: 40px;
+    aspect-ratio: 1/1;
+    margin-right: 10px;
+}
+
+.room-item-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.room-item-name {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.room-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.room-buttons a {
+    text-decoration: none;
+}
+
+.room-btn-cancel {
+    height: 40px;
+    background-color: #e5e7eb;
+    color: #081b3a;
+    margin-right: 15px;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0 16px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.room-btn-cancel:hover {
+    background-color: #c6cad2;
+}
+
+.room-btn-create {
+    height: 40px;
+    background-color: #0068ff;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0 16px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+/* End Room */

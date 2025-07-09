@@ -1,8 +1,13 @@
 const express = require("express");
+const multer = require("multer");
+
 const router = express.Router();
+
+const upload = multer();
 
 const controller = require("../../controllers/client/user.controller");
 const userMiddleware = require("../../middlewares/client/user.middleware");
+const uploadCloud = require("../../middlewares/client/uploadCloud.middleware");
 
 router.get("/register", controller.register);
 router.post("/register", controller.registerPost);

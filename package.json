@@ -21,6 +21,7 @@
     "md5": "^2.3.0",
     "mongoose": "^8.13.2",
     "mongoose-slug-updater": "^3.3.0",
+    "multer": "^2.0.1",
     "nodemailer": "^7.0.4",
     "pug": "^3.0.3",
     "socket.io": "^4.8.1",
